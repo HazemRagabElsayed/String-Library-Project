@@ -19,15 +19,6 @@ private:
 		return isupper(Character) ? tolower(Character) : toupper(Character);
 	}
 
-	static bool IsVowel(char Character) {
-
-		Character = tolower(Character);
-
-		return 'a' == Character || 'e' == Character || 'i' == Character
-			|| 'u' == Character || 'o' == Character;
-
-	}
-
 	static int RandomNumber(int From, int To)
 	{
 		return rand() % (To - From + 1) + From;
@@ -119,11 +110,6 @@ public:
 
 		return Key;
 	}
-	string GenerateKey() {
-
-		return GenerateKey();
-
-	 }
 
 	 static string EncryptText(string Text, short EncryptionKey)
 	 {
@@ -295,10 +281,10 @@ public:
 		 while ((pos = S1.find(Delim)) != std::string::npos)
 		 {
 			 sWord = S1.substr(0, pos); // store the word   
-			 if (sWord != "")
-			 {
+			 //if (sWord != "")
+			 //{
 				 vString.push_back(sWord);
-			 }
+			 //}
 
 			 S1.erase(0, pos + Delim.length());  /* erase() until positon and move to next word. */
 		 }
@@ -459,20 +445,20 @@ public:
 
 
 		  if (!MatchCase) {
-			  LowerAllLetters(str);
-			  LowerAllLetters(WordToReplace);
+			  LowerAllString(str);
+			  LowerAllString(WordToReplace);
 		  }
 
 		  vector<string> vWords;
 
-		  vWords = SplitWords(str, " ");
+		  vWords = Split(str, " ");
 
 		  for (string& Word : vWords) {
 			  if (Word == WordToReplace)
 				  Word = ReplacedBy;
 		  }
 
-		  return JoinStrings(vWords, " ");
+		  return JoinString(vWords, " ");
 
 	  }
 
